@@ -1,8 +1,12 @@
-<p>message works!</p>
 
 <button (click)="showAll()">refresh messages</button>
 <br/>
 {{message}} 
+<br/>
+
+<!-- SortemessageComponent is child component of MessageComponent-->
+<app-sortmessage  (sortEmitter) = "sortMessages($event)"></app-sortmessage>
+
 <table>
     <thead>
         <tr>
