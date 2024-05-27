@@ -1,7 +1,22 @@
 <p>addmessage works!</p>
 
 <form (ngSubmit)="addMessage()">
-    <input type="number" placeholder="Id" name="id" [(ngModel)]="id"><br/>
-    <input type="text" placeholder="Message" name="message" [(ngModel)]="name">
-    <input type="submit" value="Create Message"><br/>
+    <input type="number" placeholder="Id" name="id" [(ngModel)]="id" required><br/>
+    <input type="text" placeholder="Message" name="message" [(ngModel)]="name" #m="ngModel" required>
+    <span *ngIf="m.invalid && m.touched">Message is MUST</span><br/>
+    <input type="submit" value="Create Message" [disabled]="m.invalid"><br/>
 </form>
+
+
+<!--
+    these are CSS classes added by angular
+    
+    ng-invalid      value is invalid
+    ng-valid        value is valid
+
+    ng-untouched    element is NOT touched
+    ng-touched      element is touched
+
+    ng-pristine     value is NOT edited
+    ng-dirty        value is edited
+--> 

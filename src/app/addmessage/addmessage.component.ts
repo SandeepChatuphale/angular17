@@ -4,12 +4,13 @@ import { MessageService } from '../service/message.service';
 import { Router } from '@angular/router';
 import { Message } from '../../model/Message';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-addmessage',
   templateUrl: './addmessage.component.html',
   styleUrls: ['./addmessage.component.css'],
-  imports:[FormsModule],
+  imports:[FormsModule,CommonModule],
   standalone: true
 })
 export class AddmessageComponent {
