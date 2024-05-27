@@ -1,0 +1,28 @@
+<p>message works!</p>
+
+<button (click)="showAll()">refresh messages</button>
+<br/>
+{{message}} 
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let msg of messages">
+            <td>{{msg.id}}</td>
+            <td>{{msg.name}}</td>
+            <td><button (click)="deleteById(msg.id)">Delete</button> </td>
+            <td><button (click)="showUpdate(msg)">Update</button> </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- UpdatemessageComponent is child component of MessageComponent-->
+<!-- MessageComponent is parent component of UpdatemessageComponent-->
+<app-updatemessage *ngIf="showUpdateForm" [sm] = "messageTobeUpdated"
+                                          (messageEmitter) = "hideUpdateForm($event)"/>

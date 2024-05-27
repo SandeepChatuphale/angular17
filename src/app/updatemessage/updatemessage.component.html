@@ -1,0 +1,7 @@
+<p>updatemessage works!</p>
+<form (ngSubmit)="updateMessage()">
+    <input type="number" placeholder="Id" name="id" [(ngModel)]="sm.id"><br/>
+    <input type="text" placeholder="Message" name="message" [(ngModel)]="sm.name"><br/>
+    <input type="submit" value="Update">
+    <button (click)="cancel()"> Cancel </button> <br/>
+</form>
