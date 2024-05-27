@@ -4,13 +4,14 @@ import { Message } from '../../model/Message';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdatemessageComponent } from '../updatemessage/updatemessage.component';
+import { SortmessageComponent } from '../sortmessage/sortmessage.component';
 
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css'],
   standalone: true,
-  imports:[CommonModule,HttpClientModule,UpdatemessageComponent]
+  imports:[CommonModule,HttpClientModule,UpdatemessageComponent,SortmessageComponent]
 })
 export class MessageComponent {
   
@@ -53,6 +54,17 @@ export class MessageComponent {
     this.message = 'Loading...'
   }
 
+  sortMessages(sortCriteria:string)
+  {
+    if(sortCriteria === 'ASC')
+      {
+        this.messages.sort((m1,m2) => m1.id - m2.id)
+      }
+      else if(sortCriteria === 'DESC')
+      {
+          this.messages.sort((m1,m2) => m2.id - m1.id)
+      }
+  } 
  
   //this is invoked when child component is emitting
   //this (msg) string is send by child component
